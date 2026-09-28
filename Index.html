@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PK PRINTER | Premium Digital & Offset Printing Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            cyan: '#00A3E0',
+                            magenta: '#EC008C',
+                            yellow: '#FFD100',
+                            black: '#1A1A1A',
+                            dark: '#0F172A',
+                            primary: '#2563EB',
+                            accent: '#3B82F6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .cmyk-border {
+            border-image: linear-gradient(to right, #00A3E0 25%, #EC008C 25% 50%, #FFD100 50% 75%, #1A1A1A 75%) 1;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-brand-cyan selection:text-white">
+
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4">
+        <div class="max-w-7xl mx-mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 mx-auto">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center gap-1"><i class="fa-solid fa-phone text-brand-cyan"></i> +91 98765 43210</span>
+                <span class="flex items-center gap-1"><i class="fa-solid fa-envelope text-brand-magenta"></i> info@pkprinter.in</span>
+                <span class="hidden md:inline-flex items-center gap-1"><i class="fa-solid fa-location-dot text-brand-yellow"></i> New Delhi, India</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="bg-brand-cyan/20 text-brand-cyan text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Fast Delivery</span>
+                <span>Express Printing Available Nationwide</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan via-brand-magenta to-brand-yellow p-0.5 shadow-md group-hover:scale-105 transition-transform">
+                        <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
+                            <span class="text-white font-black text-xl tracking-wider">PK</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-black text-slate-900 tracking-tight">PK <span class="text-brand-primary">PRINTER</span></span>
+                        <p class="text-[10px] text-slate-500 font-semibold tracking-widest uppercase -mt-1">pkprinter.in</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8 font-medium text-slate-600 text-sm">
+                    <a href="#services" class="hover:text-brand-primary transition-colors">Services</a>
+                    <a href="#calculator" class="hover:text-brand-primary transition-colors flex items-center gap-1 text-brand-primary font-semibold">
+                        <i class="fa-solid fa-calculator"></i> Price Estimator
+                    </a>
+                    <a href="#about" class="hover:text-brand-primary transition-colors">About Us</a>
+                    <a href="#portfolio" class="hover:text-brand-primary transition-colors">Portfolio</a>
+                    <a href="#testimonials" class="hover:text-brand-primary transition-colors">Reviews</a>
+                    <a href="#contact" class="hover:text-brand-primary transition-colors">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="#calculator" class="bg-gradient-to-r from-brand-primary to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all text-sm flex items-center gap-2">
+                        <span>Get Instant Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-700 hover:text-brand-primary focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#services" class="block py-2 text-slate-700 font-medium hover:text-brand-primary">Services</a>
+            <a href="#calculator" class="block py-2 text-brand-primary font-semibold">Price Estimator</a>
+            <a href="#about" class="block py-2 text-slate-700 font-medium hover:text-brand-primary">About Us</a>
+            <a href="#portfolio" class="block py-2 text-slate-700 font-medium hover:text-brand-primary">Portfolio</a>
+            <a href="#testimonials" class="block py-2 text-slate-700 font-medium hover:text-brand-primary">Reviews</a>
+            <a href="#contact" class="block py-2 text-slate-700 font-medium hover:text-brand-primary">Contact</a>
+            <a href="#calculator" class="w-full text-center bg-brand-primary text-white font-semibold py-3 rounded-xl block shadow-md">Get Instant Quote</a>
+        </div>
+    </nav>
+
+    <header class="relative overflow-hidden bg-slate-900 text-white pt-12 pb-24 lg:pt-20 lg:pb-32">
+        <!-- Decorative Background Gradients & CMYK Accents -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-cyan/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-brand-magenta/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-yellow/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-xs text-brand-cyan font-medium">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        High-Precision Digital & Offset Printing
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Transforming Ideas into <span class="bg-gradient-to-r from-brand-cyan via-pink-400 to-brand-yellow bg-clip-text text-transparent">Vibrant Print</span> Realities.
+                    </h1>
+                    
+                    <p class="text-slate-300 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Your trusted printing partner for premium business cards, packaging, banners, marketing materials, and custom apparel with razor-sharp quality and ultra-fast delivery.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                        <a href="#calculator" class="bg-gradient-to-r from-brand-cyan to-blue-600 hover:opacity-95 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/25 transition-all text-center flex items-center justify-center gap-2 text-base">
+                            <i class="fa-solid fa-calculator"></i>
+                            Calculate Estimate
+                        </a>
+                        <a href="#services" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold px-8 py-4 rounded-xl transition-all text-center flex items-center justify-center gap-2 text-base">
+                            Explore Services
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <div class="text-2xl font-bold text-white">99.8%</div>
+                            <div class="text-xs text-slate-400">Color Accuracy</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-white">24-48 HR</div>
+                            <div class="text-xs text-slate-400">Fast Dispatch</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-white">10K+</div>
+                            <div class="text-xs text-slate-400">Clients Served</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic / Feature Visual -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- CMYK Color Palette Accent -->
+                        <div class="absolute -top-4 -left-4 w-full h-full rounded-2xl border-2 border-brand-cyan/40 transform -rotate-2"></div>
+                        <div class="absolute -bottom-4 -right-4 w-full h-full rounded-2xl border-2 border-brand-magenta/40 transform rotate-2"></div>
+                        
+                        <div class="relative bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl overflow-hidden">
+                            <div class="aspect-video sm:aspect-square rounded-xl bg-slate-900 overflow-hidden relative group">
+                                <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=800&q=80" alt="Printing Press Machine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" onerror="this.src='https://placehold.co/600x600/1e293b/ffffff?text=PK+PRINTER+Press'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-700/50">
+                                    <div class="flex items-center gap-3">
+                                        <div class="p-3 bg-brand-cyan/20 rounded-lg text-brand-cyan">
+                                            <i class="fa-solid fa-print text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-bold text-sm">Industrial Grade Printing</h4>
+                                            <p class="text-slate-400 text-xs">Offset & High-Resolution Digital</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 flex items-center justify-between text-xs text-slate-400">
+                                <span class="flex items-center gap-1"><i class="fa-solid fa-check text-emerald-400"></i> CMYK + RGB Support</span>
+                                <span class="flex items-center gap-1"><i class="fa-solid fa-check text-emerald-400"></i> Eco-Friendly Inks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-brand-primary mb-2">Our Printing Capabilities</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Comprehensive Print Solutions for Every Business</h3>
+                <p class="mt-4 text-slate-600">From high-volume commercial printing to bespoke custom packaging, we deliver unmatched color precision and material quality.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="group bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-brand-cyan/40 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-100 text-brand-cyan flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-cyan group-hover:text-white transition-all">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Business Cards & Branding</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Matte, gloss, velvet touch, spot UV, metallic foil, and textured card stocks to leave a memorable first impression.
+                    </p>
+                    <a href="#calculator" class="text-brand-cyan font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Estimate Cost <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-brand-magenta/40 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-pink-100 text-brand-magenta flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-magenta group-hover:text-white transition-all">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Custom Packaging & Boxes</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Corrugated boxes, product sleeves, mailer boxes, and luxury rigid packaging tailored to your exact brand specifications.
+                    </p>
+                    <a href="#calculator" class="text-brand-magenta font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Estimate Cost <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-amber-400 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-scroll"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Banners & Large Format</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Flex banners, vinyl standees, backlit signages, hoardings, and canvas prints engineered for indoor and outdoor durability.
+                    </p>
+                    <a href="#calculator" class="text-amber-600 font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Estimate Cost <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="group bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-indigo-400 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Brochures & Marketing</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Bi-fold, tri-fold brochures, flyers, catalogs, booklets, and posters printed on ultra-white premium glossy papers.
+                    </p>
+                    <a href="#calculator" class="text-indigo-600 font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Estimate Cost <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="group bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-emerald-400 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Apparel & Merch Printing</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Custom T-shirts, hoodies, caps, promotional tote bags, and corporate uniforms using DTG and screen printing.
+                    </p>
+                    <a href="#calculator" class="text-emerald-600 font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Estimate Cost <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="group bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-purple-400 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-stamp"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Stickers & Labels</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Die-cut vinyl stickers, waterproof bottle labels, roll labels, and barcode labels with custom cut shapes.
+                    </p>
+                    <a href="#calculator" class="text-purple-600 font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Estimate Cost <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="bg-brand-primary/20 text-brand-primary border border-brand-primary/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Interactive Calculator</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-3">Instant Price Estimator</h2>
+                <p class="text-slate-400 mt-2">Get immediate cost insights for your print order and submit directly to our production team.</p>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700 rounded-3xl p-6 sm:p-10 shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    
+                    <!-- Form Controls -->
+                    <div class="lg:col-span-8 space-y-6">
+                        <!-- Product Type -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">1. Select Product Category</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="calc-category-group">
+                                <button type="button" data-type="business-cards" data-rate="2.5" class="calc-cat-btn active border-2 border-brand-cyan bg-brand-cyan/10 text-white p-3 rounded-xl text-xs sm:text-sm font-semibold flex flex-col items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-id-card text-brand-cyan text-lg"></i>
+                                    Business Cards
+                                </button>
+                                <button type="button" data-type="flyers" data-rate="4.0" class="calc-cat-btn border border-slate-700 hover:border-slate-500 bg-slate-900/50 text-slate-300 p-3 rounded-xl text-xs sm:text-sm font-semibold flex flex-col items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-file-lines text-slate-400 text-lg"></i>
+                                    Flyers & Leaflets
+                                </button>
+                                <button type="button" data-type="banners" data-rate="45.0" class="calc-cat-btn border border-slate-700 hover:border-slate-500 bg-slate-900/50 text-slate-300 p-3 rounded-xl text-xs sm:text-sm font-semibold flex flex-col items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-scroll text-slate-400 text-lg"></i>
+                                    Flex Banners
+                                </button>
+                                <button type="button" data-type="boxes" data-rate="18.0" class="calc-cat-btn border border-slate-700 hover:border-slate-500 bg-slate-900/50 text-slate-300 p-3 rounded-xl text-xs sm:text-sm font-semibold flex flex-col items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-box text-slate-400 text-lg"></i>
+                                    Custom Boxes
+                                </button>
+                                <button type="button" data-type="apparel" data-rate="280.0" class="calc-cat-btn border border-slate-700 hover:border-slate-500 bg-slate-900/50 text-slate-300 p-3 rounded-xl text-xs sm:text-sm font-semibold flex flex-col items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-shirt text-slate-400 text-lg"></i>
+                                    T-Shirt Printing
+                                </button>
+                                <button type="button" data-type="stickers" data-rate="1.5" class="calc-cat-btn border border-slate-700 hover:border-slate-500 bg-slate-900/50 text-slate-300 p-3 rounded-xl text-xs sm:text-sm font-semibold flex flex-col items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-stamp text-slate-400 text-lg"></i>
+                                    Vinyl Stickers
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Quantity Slider -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-sm font-semibold text-slate-300">2. Select Quantity</label>
+                                <span class="text-brand-cyan font-extrabold text-lg" id="calc-qty-display">500 Units</span>
+                            </div>
+                            <input type="range" id="calc-qty-range" min="100" max="10000" step="100" value="500" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brand-cyan">
+                            <div class="flex justify-between text-[11px] text-slate-500 mt-1">
+                                <span>100</span>
+                                <span>2,500</span>
+                                <span>5,000</span>
+                                <span>10,000+</span>
+                            </div>
+                        </div>
+
+                        <!-- Paper / Material Quality -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-300 mb-2">3. Material / GSM</label>
+                                <select id="calc-material" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:border-brand-cyan focus:outline-none">
+                                    <option value="1.0">Standard Paper Stock (250-300 GSM)</option>
+                                    <option value="1.3">Premium Glossy Art Paper (350 GSM)</option>
+                                    <option value="1.6">Heavy Recycled Eco Card Stock</option>
+                                    <option value="2.0">Textured Luxury Fine Paper</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-300 mb-2">4. Lamination & Finish</label>
+                                <select id="calc-finish" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:border-brand-cyan focus:outline-none">
+                                    <option value="1.0">No Extra Finish</option>
+                                    <option value="1.2">Matte / Gloss Lamination (+20%)</option>
+                                    <option value="1.4">Velvet Soft-Touch Finish (+40%)</option>
+                                    <option value="1.7">Spot UV + Metallic Foil (+70%)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary Card -->
+                    <div class="lg:col-span-4 bg-slate-900 rounded-2xl p-6 border border-slate-700 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-4 border-b border-slate-800 pb-3 flex items-center justify-between">
+                                <span>Order Summary</span>
+                                <i class="fa-solid fa-receipt text-slate-500"></i>
+                            </h3>
+                            
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between text-slate-400">
+                                    <span>Selected Item:</span>
+                                    <span class="text-white font-medium" id="summary-item-name">Business Cards</span>
+                                </div>
+                                <div class="flex justify-between text-slate-400">
+                                    <span>Quantity:</span>
+                                    <span class="text-white font-medium" id="summary-qty">500</span>
+                                </div>
+                                <div class="flex justify-between text-slate-400">
+                                    <span>Unit Price:</span>
+                                    <span class="text-white font-medium" id="summary-unit-price">₹2.50</span>
+                                </div>
+                                <div class="flex justify-between text-slate-400">
+                                    <span>Estimated GST (18%):</span>
+                                    <span class="text-white font-medium" id="summary-gst">₹225</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-800">
+                                <span class="text-xs text-slate-400 uppercase tracking-wider block">Estimated Total</span>
+                                <div class="text-3xl font-black text-brand-cyan mt-1" id="summary-total-price">₹1,475</div>
+                                <p class="text-[11px] text-slate-500 mt-1">*Final price may vary slightly based on custom artwork specifications.</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <button id="calc-submit-btn" class="w-full bg-gradient-to-r from-brand-cyan to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-lg"></i> Order via WhatsApp Quote
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-brand-magenta font-bold text-xs uppercase tracking-widest">About PK PRINTER</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+                        Delivering Unmatched Print Precision & Brand Packaging Excellence
+                    </h2>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        With state-of-the-art print press machinery, fast turnaround times, and strict quality assurance, <strong>PK PRINTER</strong> has been a pioneer in commercial printing for over a decade. We combine advanced CMYK offset technology with high-speed digital printing to power businesses across India.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <i class="fa-solid fa-bullseye text-brand-cyan text-2xl mb-2"></i>
+                            <h4 class="font-bold text-slate-900 text-sm">High Precision</h4>
+                            <p class="text-xs text-slate-500 mt-1">High DPI sharpness and vibrant pantone color matching.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <i class="fa-solid fa-truck-fast text-brand-magenta text-2xl mb-2"></i>
+                            <h4 class="font-bold text-slate-900 text-sm">Express Shipping</h4>
+                            <p class="text-xs text-slate-500 mt-1">Doorstep delivery nationwide with safe packaging.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="#contact" class="inline-flex items-center gap-2 text-brand-primary font-bold hover:gap-3 transition-all">
+                            Talk with our Print Experts <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <img src="https://images.unsplash.com/photo-1572949645841-094f3a9c4c94?auto=format&fit=crop&w=600&q=80" alt="Offset Printing Machine" class="rounded-2xl shadow-md object-cover h-64 w-full" onerror="this.src='https://placehold.co/400x500/0f172a/ffffff?text=Press+Machine'">
+                            <div class="bg-gradient-to-br from-brand-primary to-blue-700 text-white p-6 rounded-2xl shadow-lg">
+                                <span class="text-4xl font-extrabold">10+</span>
+                                <p class="text-xs text-blue-100 mt-1 font-medium">Years of Print Innovation & Excellence</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4 pt-8">
+                            <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-lg">
+                                <span class="text-4xl font-extrabold text-brand-yellow">100%</span>
+                                <p class="text-xs text-slate-300 mt-1 font-medium">Satisfaction & Quality Guarantee</p>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80" alt="Print Quality Check" class="rounded-2xl shadow-md object-cover h-64 w-full" onerror="this.src='https://placehold.co/400x500/1e293b/ffffff?text=Quality+Check'">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-brand-cyan font-bold text-xs uppercase tracking-widest">Featured Portfolio</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">Our Featured Projects</h2>
+                </div>
+                <p class="text-slate-500 text-sm max-w-md mt-4 md:mt-0">Take a look at some of our recent custom printing and corporate packaging works.</p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portfolio Card 1 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=800&q=80" alt="Premium Business Card" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500 opacity-90" onerror="this.src='https://placehold.co/600x400/0f172a/ffffff?text=Luxury+Business+Cards'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-cyan bg-brand-cyan/20 px-2.5 py-1 rounded-md">Luxury Cards</span>
+                        <h4 class="text-lg font-bold text-white mt-2">Gold Foil & Matte Business Cards</h4>
+                        <p class="text-xs text-slate-300 mt-1">350 GSM Velvet Touch Stock</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 2 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80" alt="Custom Box Packaging" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500 opacity-90" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Custom+Packaging'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-magenta bg-brand-magenta/20 px-2.5 py-1 rounded-md">Packaging</span>
+                        <h4 class="text-lg font-bold text-white mt-2">Custom Product Packaging Boxes</h4>
+                        <p class="text-xs text-slate-300 mt-1">Corrugated Die-Cut Box</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 3 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Brochure Design" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500 opacity-90" onerror="this.src='https://placehold.co/600x400/334155/ffffff?text=Corporate+Brochures'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-yellow bg-amber-500/20 px-2.5 py-1 rounded-md text-amber-300">Brochures</span>
+                        <h4 class="text-lg font-bold text-white mt-2">Corporate Tri-Fold Catalogs</h4>
+                        <p class="text-xs text-slate-300 mt-1">200 GSM Gloss Finish</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-cyan font-bold text-xs uppercase tracking-widest">Client Testimonials</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">Trusted by 10,000+ Brands & Businesses</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-slate-800/80 border border-slate-700/60 p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed">
+                            "PK PRINTER delivered our custom packaging boxes right on time for our product launch. The print finish and spot UV effect were absolutely stunning!"
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-700/50 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-cyan flex items-center justify-center text-slate-900 font-bold text-sm">
+                            RK
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-sm text-white">Rajesh Kumar</h5>
+                            <p class="text-xs text-slate-400">Founder, Apex Retail</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-slate-800/80 border border-slate-700/60 p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed">
+                            "The quality of our corporate business cards was exceptional. Everyone in our team loves the velvet touch coating and precise metallic foil accents."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-700/50 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-magenta flex items-center justify-center text-white font-bold text-sm">
+                            PS
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-sm text-white">Priya Sharma</h5>
+                            <p class="text-xs text-slate-400">Marketing Head, Nexus Tech</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-slate-800/80 border border-slate-700/60 p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed">
+                            "Super fast turnaround for our expo banners! The Instant Quote Calculator on pkprinter.in made estimation extremely simple and transparent."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-700/50 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center text-slate-900 font-bold text-sm">
+                            AV
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-sm text-white">Amit Verma</h5>
+                            <p class="text-xs text-slate-400">Event Organizer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-brand-primary font-bold text-xs uppercase tracking-widest">Get In Touch</span>
+                        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Ready to Start Your Printing Order?</h2>
+                        <p class="text-slate-600 text-sm mt-3">Contact us for custom quotations, artwork guidelines, or sample box requests.</p>
+                    </div>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200/80 shadow-sm">
+                            <div class="p-3 bg-blue-50 text-brand-primary rounded-lg text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Office & Works Address</h4>
+                                <p class="text-slate-600 text-xs mt-0.5">PK PRINTER Press Complex, Industrial Area, Phase 2, New Delhi, India 110020</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200/80 shadow-sm">
+                            <div class="p-3 bg-cyan-50 text-brand-cyan rounded-lg text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Phone & WhatsApp</h4>
+                                <p class="text-slate-600 text-xs mt-0.5">+91 98765 43210 / +91 11 2345 6789</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200/80 shadow-sm">
+                            <div class="p-3 bg-pink-50 text-brand-magenta rounded-lg text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Email Inquiries</h4>
+                                <p class="text-slate-600 text-xs mt-0.5">info@pkprinter.in / sales@pkprinter.in</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Placeholder -->
+                    <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-200 h-48 relative">
+                        <iframe title="Map" class="w-full h-full border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.8392319277!2d77.06889754725782!3d28.52728034389926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Contact Form Column -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-xl">
+                        <h3 class="text-xl font-bold text-slate-900 mb-6">Send Us a Direct Message</h3>
+                        
+                        <form id="contact-form" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name *</label>
+                                    <input type="text" required placeholder="John Doe" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:bg-white focus:border-brand-primary focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number *</label>
+                                    <input type="tel" required placeholder="+91 9876543210" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:bg-white focus:border-brand-primary focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address *</label>
+                                    <input type="email" required placeholder="john@company.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:bg-white focus:border-brand-primary focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Printing Requirement</label>
+                                    <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:bg-white focus:border-brand-primary focus:outline-none">
+                                        <option>Business Cards</option>
+                                        <option>Custom Packaging</option>
+                                        <option>Flex & Vinyl Banner</option>
+                                        <option>Flyers & Catalog</option>
+                                        <option>Apparel / T-Shirts</option>
+                                        <option>Other Printing</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Message / Specs Details *</label>
+                                <textarea rows="4" required placeholder="Mention dimensions, GSM, quantity, or design instructions..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:bg-white focus:border-brand-primary focus:outline-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl text-sm shadow-md transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i> Send Inquiry Message
+                            </button>
+                        </form>
+
+                        <div id="form-success-msg" class="hidden mt-4 p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl text-sm text-center">
+                            <i class="fa-solid fa-circle-check text-emerald-600 text-lg mr-1"></i> Thank you! Your inquiry has been sent successfully. Our print consultant will contact you shortly.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Brand Info -->
+                <div class="space-y-4 md:col-span-1">
+                    <a href="#" class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-cyan via-brand-magenta to-brand-yellow p-0.5">
+                            <div class="w-full h-full bg-slate-900 rounded-[6px] flex items-center justify-center">
+                                <span class="text-white font-black text-sm">PK</span>
+                            </div>
+                        </div>
+                        <span class="text-xl font-black text-white tracking-tight">PK <span class="text-brand-cyan">PRINTER</span></span>
+                    </a>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Precision offset & digital printing services for businesses, agencies, and individuals nationwide.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="text-white font-bold text-sm mb-4">Quick Links</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#services" class="hover:text-brand-cyan transition-colors">Printing Services</a></li>
+                        <li><a href="#calculator" class="hover:text-brand-cyan transition-colors">Instant Calculator</a></li>
+                        <li><a href="#portfolio" class="hover:text-brand-cyan transition-colors">Recent Works</a></li>
+                        <li><a href="#about" class="hover:text-brand-cyan transition-colors">About PK PRINTER</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services List -->
+                <div>
+                    <h5 class="text-white font-bold text-sm mb-4">Printing Services</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#services" class="hover:text-brand-cyan transition-colors">Digital Business Cards</a></li>
+                        <li><a href="#services" class="hover:text-brand-cyan transition-colors">Custom Rigid Boxes</a></li>
+                        <li><a href="#services" class="hover:text-brand-cyan transition-colors">Vinyl & Flex Banners</a></li>
+                        <li><a href="#services" class="hover:text-brand-cyan transition-colors">Textile & T-Shirt Print</a></li>
+                    </ul>
+                </div>
+
+                <!-- Domain Info -->
+                <div>
+                    <h5 class="text-white font-bold text-sm mb-4">Official Domain</h5>
+                    <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                        <p class="text-xs text-slate-400">Visit official website:</p>
+                        <a href="https://pkprinter.in" class="text-brand-cyan font-bold text-sm block mt-1 hover:underline">pkprinter.in</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CMYK Line Bar Accent -->
+            <div class="h-1 w-full bg-gradient-to-r from-brand-cyan via-brand-magenta to-brand-yellow rounded-full my-6"></div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 PK PRINTER (pkprinter.in). All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-300">Terms of Service</a>
+                    <a href="#" class="hover:text-slate-300">Artwork Guidelines</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle Logic
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Calculator Elements
+            const categoryBtns = document.querySelectorAll('.calc-cat-btn');
+            const qtyRange = document.getElementById('calc-qty-range');
+            const qtyDisplay = document.getElementById('calc-qty-display');
+            const materialSelect = document.getElementById('calc-material');
+            const finishSelect = document.getElementById('calc-finish');
+
+            const summaryItemName = document.getElementById('summary-item-name');
+            const summaryQty = document.getElementById('summary-qty');
+            const summaryUnitPrice = document.getElementById('summary-unit-price');
+            const summaryGst = document.getElementById('summary-gst');
+            const summaryTotalPrice = document.getElementById('summary-total-price');
+            const calcSubmitBtn = document.getElementById('calc-submit-btn');
+
+            let currentRate = 2.5; // Default Business Card rate
+            let currentItemName = "Business Cards";
+
+            // Category Button Selection Handler
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => {
+                        b.classList.remove('active', 'border-2', 'border-brand-cyan', 'bg-brand-cyan/10', 'text-white');
+                        b.classList.add('border', 'border-slate-700', 'bg-slate-900/50', 'text-slate-300');
+                    });
+
+                    btn.classList.add('active', 'border-2', 'border-brand-cyan', 'bg-brand-cyan/10', 'text-white');
+                    btn.classList.remove('border-slate-700', 'bg-slate-900/50', 'text-slate-300');
+
+                    currentRate = parseFloat(btn.getAttribute('data-rate'));
+                    currentItemName = btn.innerText.trim();
+                    calculatePrice();
+                });
+            });
+
+            // Quantity Change Handler
+            qtyRange.addEventListener('input', (e) => {
+                qtyDisplay.textContent = `${parseInt(e.target.value).toLocaleString()} Units`;
+                calculatePrice();
+            });
+
+            // Dropdown Select Handlers
+            materialSelect.addEventListener('change', calculatePrice);
+            finishSelect.addEventListener('change', calculatePrice);
+
+            // Calculation Logic
+            function calculatePrice() {
+                const qty = parseInt(qtyRange.value);
+                const matMult = parseFloat(materialSelect.value);
+                const finishMult = parseFloat(finishSelect.value);
+
+                // Bulk Quantity Discount Factors
+                let bulkDiscount = 1.0;
+                if (qty >= 5000) bulkDiscount = 0.75;
+                else if (qty >= 2000) bulkDiscount = 0.85;
+                else if (qty >= 1000) bulkDiscount = 0.90;
+
+                const unitPrice = currentRate * matMult * finishMult * bulkDiscount;
+                const subtotal = qty * unitPrice;
+                const gst = subtotal * 0.18;
+                const total = subtotal + gst;
+
+                // Update UI Summary
+                summaryItemName.textContent = currentItemName;
+                summaryQty.textContent = `${qty.toLocaleString()} Units`;
+                summaryUnitPrice.textContent = `₹${unitPrice.toFixed(2)}`;
+                summaryGst.textContent = `₹${Math.round(gst).toLocaleString()}`;
+                summaryTotalPrice.textContent = `₹${Math.round(total).toLocaleString()}`;
+            }
+
+            // WhatsApp Button Integration
+            calcSubmitBtn.addEventListener('click', () => {
+                const qty = qtyRange.value;
+                const total = summaryTotalPrice.textContent;
+                const message = `Hello PK PRINTER, I would like to place an order for:\n- Item: ${currentItemName}\n- Quantity: ${qty} units\n- Estimated Total: ${total}\nDomain: pkprinter.in`;
+                const encodedMsg = encodeURIComponent(message);
+                window.open(`https://wa.me/919876543210?text=${encodedMsg}`, '_blank');
+            });
+
+            // Contact Form Handler
+            const contactForm = document.getElementById('contact-form');
+            const successMsg = document.getElementById('form-success-msg');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                successMsg.classList.remove('hidden');
+                contactForm.reset();
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                }, 6000);
+            });
+
+            // Run initial calculation on page load
+            calculatePrice();
+        });
+    </script>
+</body>
+</html>
